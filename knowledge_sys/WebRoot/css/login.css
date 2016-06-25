@@ -1,0 +1,192 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body,head,div,ul,li,form,input,button,img,a,span{
+	margin:0;
+	padding:0;
+}
+
+html,body{
+	width:100%;
+	height:100%;
+}
+
+body{
+	overflow:hidden;
+}
+.font{
+	font-family: "Microsoft YaHei", "Simsun", Tahoma, Arial,"Helvetica Neue","Hiragino Sans GB", "sans-self";
+	font-size:14px;
+}
+
+.content{
+	position:absolute;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	min-width: 1000px;
+}
+.alert{	
+	display:none;
+}
+.layer img{
+	width:110%;
+	height:110%;
+}
+.right-box{
+	float: right;
+	width: 35%;height: 100%;
+	min-width: 300px;
+}
+.lrbox{
+	margin-left: 50px;
+	width: 320px;
+	height: 400px;
+	background-color: #F5F5F5;
+	margin-top:50px;
+	border-radius:3px;
+	overflow:hidden;
+}
+.login-register{
+	width:960px;
+	height:520px;
+	margin-left:-320px;
+}
+.reset{
+	width:300px;
+	height:330px;
+	margin:0px 10px 0;
+	float:left;
+}
+
+.login{
+	width:300px;
+	height:400px;
+	margin:0px 10px 0;
+	float:left;
+}
+.regiseter{
+	width:300px;
+	height:520px;
+	margin:0 10px 0;
+	float:left;
+
+}
+
+.text_input{
+	width:288px;
+	height:50px;
+	margin-top:20px;
+	padding:0 0 0 10px;
+	border:1px solid #D9D9D9;
+	border-radius:5px;
+}
+.submit-rigister-input{
+	width:300px;
+	height:50px;
+	margin-top:20px;
+	background-color:#03A9F4;
+	outline:none;
+	border:0;
+	border-radius:5px;
+	line-height: 50px;
+    font-size: 16px;
+	color:#fff;
+	cursor:pointer;
+}
+.submit-rigister-input a{
+	color:#fff;
+	text-decoration:none;
+}
+
+.button_rigister{
+	width:298px;
+	height:50px;
+	margin-top:20px;
+	border:1px solid #03A9F4;
+	border-radius:5px;
+	text-align:center;
+	line-height:50px;
+	cursor:pointer;
+	position:relative;
+}
+.button_reset{
+	width:298px;
+	height:50px;
+	margin-top:20px;
+	border:1px solid #C2C2C2;
+	border-radius:5px;
+	text-align:center;
+	line-height:50px;
+	cursor:pointer;
+	position:relative;
+}
+.button_rigister a{
+	color:#03A9F4;
+	text-decoration:none;
+}
+.button_reset a{
+	color:#C2C2C2;
+	text-decoration:none;
+}
+
+#email{
+	width:298px;
+	height:48px;
+	margin-top:20px;
+	border-radius:5px;
+	border:1px solid #D9D9D9;
+	position:relative;
+}
+#email input{
+	width:220px;
+	height:46px;
+	border-radius:5px;
+	padding:0 0 0 10px;
+	border:0;
+	outline:0;
+}
+#email a{
+	display:inline-block;
+	width:70px;
+	height:48px;
+	text-align:center;
+	text-decoration:none;
+	color:#03A9F4;
+	font-size:13px;
+	position:absolute;
+	top:0;
+	right:0;
+}
+#email a span{
+	color:#03A9F4;
+	line-height:48px;
+}
+
+form input{
+	font-size:14px;
+}
+
+form span{
+	color: #ff4e00;
+	font-size: 14px;
+}
+.input-arrow{
+	width:32px;
+	height:32px;
+	vertical-align:middle;
+	position:absolute;
+	left:245px;
+	top:10px;
+	display:none;
+}
+#arrow3{
+	width:32px;
+	height:32px;
+	vertical-align:middle;
+	position:absolute;
+	left:23px;
+	top:10px;
+	display:none;
+}

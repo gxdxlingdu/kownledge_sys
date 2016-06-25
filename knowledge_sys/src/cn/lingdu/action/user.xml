@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="cn.lingdu.action" namespace="/" extends="json-default">
+	
+		<!-- 【拦截器配置】 -->
+		<interceptors>
+			<interceptor name="loginCheck" class="cn.lingdu.action.UserCheckInterceptor">
+				<!-- 拦截黑名单 -->												 				
+				<param name="excludeMethods">register,sendEmail,down</param>												 				
+			</interceptor>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="loginCheck"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 【执行拦截器:第一种写法： 当前包下所有的acntion都执行myStack栈】-->
+		<default-interceptor-ref name="myStack"></default-interceptor-ref>
+		 
+	
+		<!-- 全局视图 -->
+		<global-results>
+			<result name="success">/WEB-INF/home.jsp</result> 
+			
+			<!-- 错误视图  -->
+			<result name="null">/WEB-INF/error/null.jsp</result>
+			<result name="error">/WEB-INF/error/error.jsp</result>
+			 
+			 <!-- 没有登录或登录失败时··拦截 -->
+			<result name="input">/WEB-INF/login.jsp</result>
+			
+		</global-results>
+		
+		<!-- 全局异常  -->
+		<global-exception-mappings>
+			<exception-mapping result="null" exception="java.lang.NullPointerException"></exception-mapping>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		 
+		
+		<!-- 邮箱验证码 -->
+		<action name="vrify" class="cn.lingdu.action.sendEmailAction" method="sendEmail">
+		
+		</action>
+		
+		<!-- UserAction -->
+		<action name="user_*" class="cn.lingdu.action.UserAction" method="{1}">
+			<!-- 注册 -->
+			<result name="register" type="json"></result>	
+			<!-- 登陆 -->
+			<result name="login" type="json"></result>	
+		</action>
+		
+		<!--进入登录页面-->
+		<action name="login_home" class="cn.lingdu.action.UserAction" method="login_home">
+			<result name="ok">/WEB-INF/home.jsp</result>
+		</action>
+		
+		<!--上传iframe页面-->
+		<action name="upload_page" class="cn.lingdu.action.UserAction" method="upload_page">
+			<result name="ok">/WEB-INF/upload.jsp</result>
+		</action>
+		
+		<!-- 文件上传 -->
+		<action name="fileUploadAction" class="cn.lingdu.action.FileUploadAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 文件下载 -->
+		<action name="downAction" class="cn.lingdu.action.DownAction" method="down">
+			<result name="download" type="stream">		
+				<!-- 运行下载的文件的类型:指定为所有的二进制文件类型 -->
+			   <param name="contentType">application/octet-stream</param>
+			   <!-- 对应的是Action中属性： 返回流的属性【其实就是getAttrInputStream()】 -->
+			   <param name="inputName">attrInputStream</param>			   
+			   <!-- 文件大小 -->
+			   <param name="contentLength">${fileLength}</param>			   
+			   <!-- 下载头，包括：浏览器显示的文件名 -->
+			   <param name="contentDisposition">attachment;filename=${downFileName}</param>			 
+			 	<!-- 缓冲区大小设置 -->
+			   <param name="bufferSize">1024</param>
+			</result>
+			
+			<result name="downloadMultiFile" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">multiInputStream</param>
+				<param name="contentLength">${zipLength}</param>
+				<param name="contentDisposition">attachment;filename=${downMultiFileName}</param>
+				<param name="bufferSize">1024</param>	
+			</result>
+		</action>
+		
+		<!-- 文件操作 -->
+		<action name="fileOperate_*" class="cn.lingdu.action.FileOperateAction" method="{1}">
+			<result name="delete" type="dispatcher">/WEB-INF/home.jsp</result>
+			<result name="reName" type="json"></result>
+		</action>
+		
+		<!-- 获取home页面文件 -->
+		<action name="getHomeFiles" class="cn.lingdu.action.GetFileAction" method="getHomeFiles">
+		    <result name="homefiles" type="json"></result>
+		</action>
+		<!-- 文件夹跳转(更新currentpath) -->
+		<action name="updateSession" class="cn.lingdu.action.GetFileAction" method="updateSession">
+		    <result name="upsession" type="json"></result>
+		</action>				
+		<!-- 新建文件夹 -->
+		<action name="createfolder" class="cn.lingdu.action.GetFileAction" method="createfolder">
+		    <result name="returnfolder" type="json"></result>
+		</action>
+		<!-- 更新currentpath -->
+		<action name="updateCpath" class="cn.lingdu.action.GetFileAction" method="updateCpath">		
+		</action>			
+	</package>
+
+</struts>

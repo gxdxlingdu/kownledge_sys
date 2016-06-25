@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//WebRoot/css/home.css=UTF-8
+encoding//WebRoot/js/home.js=UTF-8
+encoding//src/cn/lingdu/action/FileUploadAction.java=gbk
+encoding//src/cn/lingdu/action/GetFileAction.java=gbk
+encoding//src/cn/lingdu/action/UserAction.java=gbk
+encoding//src/cn/lingdu/action/UserCheckInterceptor.java=gbk
+encoding//src/cn/lingdu/action/sendEmailAction.java=gbk
+encoding//src/cn/lingdu/dao/IUserDao.java=GBK
+encoding//src/cn/lingdu/service/IUserService.java=gbk
+encoding//src/cn/lingdu/service/impl/UserService.java=gbk
+encoding/<project>=gbk

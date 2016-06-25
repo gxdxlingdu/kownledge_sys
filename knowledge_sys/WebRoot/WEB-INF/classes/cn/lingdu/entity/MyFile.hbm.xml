@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.lingdu.entity">
+
+	<class name="MyFile" table="myfile">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="user_id" type="integer"></property>
+		<property name="fileName" type="string"></property>
+		<property name="fileType" type="string"></property>
+		<property name="fileSize" type="long"></property>
+		<property name="filePath" type="string"></property>
+		<property name="time" type="date"></property>
+		<property name="visits" type="integer"></property>
+	</class>
+
+</hibernate-mapping>
+
+
+
